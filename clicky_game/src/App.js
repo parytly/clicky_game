@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CharacterCard from "./components/CharacterCard";
 import './App.css';
 import characters from "./characters.json";
+import Title from "./components/CharacterCard/Title"
 
 class App extends Component {
 
@@ -9,6 +10,7 @@ class App extends Component {
   render() {
     return (
       <>
+        <Title />
         {characters.map(character => (
           < CharacterCard
             name={character.name}
