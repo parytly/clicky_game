@@ -6,8 +6,8 @@ function NavBar(props) {
         <nav className="navbar sticky-top navbar-expand-lg navbar-light">
             <div className="container">
                 <h3 className="">Clicky Game</h3>
-                <h3 className="result"></h3>
-                <h3> Score: <span className='score'></span></h3>
+                {/* <h3 className="result"></h3> */}
+                <h3> Score: <span>{props.score}</span></h3>
             </div>
         </nav>
     );

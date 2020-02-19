@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CharacterCard from "./components/CharacterCard";
 import './App.css';
 import characters from "./characters.json";
@@ -6,22 +6,27 @@ import Title from "./components/Title"
 import NavBar from "./components/Navbar"
 
 
-class App extends Component {
+class App extends React.Component {
   
   state = {
-    characters
-  };
+    characters,
+    score: 0
+  }
 
-  userPick = []
 
   handleClick(e) {
     e.preventDefault();
     const clickValue = e.target.getAttribute("alt");
-    console.log("You clicked on " + clickValue)
-    // this.userPick.push(clickValue)
-    // console.log(this.userPick)
+    console.log("You clicked on " + clickValue);
+    // const scoring = () => {
+    //   const plus = this.setState({ score: this.state.score +1 })
+    //   console.log(plus)
+    // }    
   }
 
+  scoring = () => {
+    this.setState({ score: this.state.score +1 })
+  }
   // Function to shuffle the characters once clicked on
   shuffle = () => {
     const characters = this.state.characters.sort(function(a, b) {
@@ -36,7 +41,8 @@ class App extends Component {
   render() {
     return (
       <>
-        <NavBar />
+        <NavBar 
+        score = {this.state.score}/>
         <Title />
         <div className='container wrapper'>
           <div className='row'  key = {this.state.characters.id}>
@@ -47,6 +53,7 @@ class App extends Component {
                 shuffle = {this.shuffle}
                 name={character.name}
                 image={character.image}
+                score = {this.scoring}
               />
             ))}
           </div>
