@@ -4,7 +4,7 @@ import "./style.css";
 function CharacterCard(props) {
     return (
         <div className='card col-4'>
-            <button>
+            <button onClick = {() => props.shuffle(props.image)}>
                 <img alt={props.name} src={props.image} width='100' height='100' />
             </button>
 
